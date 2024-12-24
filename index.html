@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寻宝游戏</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="game">
+    <h1>寻宝游戏</h1>
+    <div id="story">游戏正在加载...</div>
+    <button id="startButton">开始寻宝</button>
+    <img id="resultImage" src="" alt="结局图片" style="display:none;">
+    <img id="clueImage" src="" alt="线索图片" style="display:none;">
+    <img id="templeImage" class="info - image" src="" alt="神庙图片" style="display:none;">
+    <img id="guardImage" class="info - image" src="" alt="守卫图片" style="display:none;">
+    <audio id="bgm" loop>
+      <source src="bgm.mp3" type="audio/mpeg">
+      <source src="bgm.ogg" type="audio/ogg">
+    </audio>
+    <button onclick="playBGM()">播放音乐</button>
+    <!-- 添加查看玩家信息按钮 -->
+    <button id="showPlayerInfoButton" onclick="showPlayerInfo()">查看玩家信息</button>
+    <!-- 添加查看图书馆资料按钮 -->
+    <button id="showLibraryInfoButton" onclick="showLibraryInfo()">查看图书馆资料</button>
+    <!-- 添加查看神庙资料按钮 -->
+    <button id="showTempleInfoButton" onclick="showTempleInfo()">神庙</button>
+    <!-- 添加查看守卫资料按钮 -->
+    <button id="showGuardInfoButton" onclick="showGuardInfo()">守卫</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+
+</html>
