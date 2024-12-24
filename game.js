@@ -192,3 +192,50 @@ async function showGuardInfo() {
     alert('未找到守卫资料');
   }
 }
+const registerPlayer = async (username) => {
+  const response = await fetch('/register', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username })
+  });
+  const data = await response.json();
+  if (response.ok) {
+      // 注册成功后的处理逻辑
+      console.log(data.message);
+  } else {
+      // 处理注册失败的情况
+      console.error(data.message);
+  }
+};
+const submitScore = async (username, score) => {
+  const response = await fetch('/submit_score', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, score })
+  });
+  const data = await response.json();
+  if (response.ok) {
+      // 提交成功后的处理逻辑
+      console.log(data.message);
+  } else {
+      // 处理提交失败的情况
+      console.error(data.message);
+  }
+};
+const getPlayerInfo = async (username) => {
+  const response = await fetch(`/player_info?username=${username}`);
+  const data = await response.json();
+  if (response.ok) {
+      // 处理获取到的玩家信息和得分历史数据
+      const { username, score_history } = data;
+      console.log('用户名:', username);
+      console.log('得分历史:', score_history);
+  } else {
+      // 处理获取信息失败的情况
+      console.error(data.message);
+  }
+};
